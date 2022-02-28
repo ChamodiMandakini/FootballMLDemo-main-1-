@@ -1,0 +1,24 @@
+conda install pytorch torchvision -c pytorch
+python -m pip install opencv-python
+
+# sk leaern 22.2 need/ commented
+conda install -c conda-forge filterpy
+
+# save video
+import matplotlib.pyplot as plt
+import matplotlib.cm as cm
+
+img = [] # some array of images
+frames = [] # for storing the generated images
+fig = plt.figure()
+for i in xrange(6):
+    frames.append([plt.imshow(img[i], cmap=cm.Greys_r,animated=True)])
+
+ani = animation.ArtistAnimation(fig, img, interval=50, blit=True,
+                                repeat_delay=1000)
+# ani.save('movie.mp4')
+plt.show()
+
+matched_indices = linear_sum_assignment(-iou_matrix)
+matched_indices = np.array(list(zip(*matched_indices)))
+matched_indices.shape = (-1, 2)
